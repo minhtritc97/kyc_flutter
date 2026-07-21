@@ -1,0 +1,3 @@
+# Demo media is served from GitHub via absolute URLs in the README, so it is
+# excluded from the published package to keep the download size small.
+doc/
