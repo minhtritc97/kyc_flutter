@@ -33,11 +33,11 @@ class _HomePageState extends State<HomePage> {
   KycResult? _result;
 
   Future<void> _startKyc() async {
-    final KycResult result = await KYCFlutter.instance.startKyc(
+    final KycResult result = await KycFlutter.instance.startKyc(
       context,
       config: const DetectionConfig(
         // Look-straight far + near always run first; add liveness steps here.
-        steps: [KYCStep.blink, KYCStep.smile],
+        steps: [KycStep.blink, KycStep.smile],
         smileThreshold: 0.5,
         // Override any on-screen text (defaults are English):
         // strings: KycStrings(blink: 'Please blink your eyes'),

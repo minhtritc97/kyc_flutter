@@ -16,7 +16,7 @@ class CapturedImage {
 
   /// The liveness step this image belongs to, when [type] is
   /// [KycCaptureType.liveness]; otherwise `null`.
-  final KYCStep? step;
+  final KycStep? step;
 
   CapturedImage({
     required this.imgPath,
@@ -29,7 +29,7 @@ class CapturedImage {
     String? imgPath,
     bool? didCaptureAutomatically,
     KycCaptureType? type,
-    KYCStep? step,
+    KycStep? step,
   }) {
     return CapturedImage(
       imgPath: imgPath ?? this.imgPath,
@@ -55,7 +55,7 @@ class CapturedImage {
       imgPath: map['imgPath'] ?? '',
       didCaptureAutomatically: map['didCaptureAutomatically'] ?? false,
       type: KycCaptureType.values[map['type'] ?? KycCaptureType.manual.index],
-      step: map['step'] != null ? KYCStep.values[map['step']] : null,
+      step: map['step'] != null ? KycStep.values[map['step']] : null,
     );
   }
 

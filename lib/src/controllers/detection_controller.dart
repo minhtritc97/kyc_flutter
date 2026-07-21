@@ -37,7 +37,7 @@ class DetectionController extends ChangeNotifier {
   bool get isCapturing => _busy;
 
   /// The liveness step currently being asked of the user, if in that phase.
-  KYCStep? get currentLivenessStep =>
+  KycStep? get currentLivenessStep =>
       _phase == FacePhase.liveness && _livenessIndex < _livenessSteps.length
       ? _livenessSteps[_livenessIndex]
       : null;
@@ -65,7 +65,7 @@ class DetectionController extends ChangeNotifier {
   late final Timer _ticker;
   Timer? _timeout;
 
-  late final List<KYCStep> _livenessSteps;
+  late final List<KycStep> _livenessSteps;
   int _livenessIndex = 0;
   bool _didCloseEyes = false;
   Size _imageSize = Size.zero;
@@ -237,22 +237,22 @@ class DetectionController extends ChangeNotifier {
     }
     final Face face = faces.first;
     _validation = const FaceValidationResult.valid(0);
-    final KYCStep step = _livenessSteps[_livenessIndex];
+    final KycStep step = _livenessSteps[_livenessIndex];
 
     switch (step) {
-      case KYCStep.blink:
+      case KycStep.blink:
         _detectBlink(face);
         break;
-      case KYCStep.smile:
+      case KycStep.smile:
         if (FaceDetectionService.isStraight(face, tolerance: 16) &&
             (face.smilingProbability ?? 0) > config.smileThreshold) {
           _completeLivenessStep();
         }
         break;
-      case KYCStep.turnLeft:
+      case KycStep.turnLeft:
         _detectTurn(face, toLeft: true);
         break;
-      case KYCStep.turnRight:
+      case KycStep.turnRight:
         _detectTurn(face, toLeft: false);
         break;
     }
@@ -342,7 +342,7 @@ class DetectionController extends ChangeNotifier {
     String? path, {
     required KycCaptureType type,
     required bool auto,
-    KYCStep? step,
+    KycStep? step,
   }) {
     _completedCaptures++;
     if (path != null && path.isNotEmpty) {

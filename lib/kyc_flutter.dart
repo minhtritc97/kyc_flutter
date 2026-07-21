@@ -13,10 +13,10 @@ export 'src/core/models/kyc_strings.dart';
 /// Call [startKyc] with a [DetectionConfig] to open the KYC screen and run the
 /// banking-style face authentication flow. It returns a [KycResult] describing
 /// the outcome and every captured image when the screen closes.
-class KYCFlutter {
-  KYCFlutter._privateConstructor();
+class KycFlutter {
+  KycFlutter._privateConstructor();
 
-  static final KYCFlutter instance = KYCFlutter._privateConstructor();
+  static final KycFlutter instance = KycFlutter._privateConstructor();
 
   /// Opens the KYC screen and runs the face detection / liveness flow.
   ///
@@ -32,7 +32,7 @@ class KYCFlutter {
     required DetectionConfig config,
   }) async {
     final KycResult? result = await Navigator.of(context).push<KycResult>(
-      MaterialPageRoute(builder: (context) => KYCScreen(config: config)),
+      MaterialPageRoute(builder: (context) => KycScreen(config: config)),
     );
     return result ?? const KycResult(status: KycStatus.cancelled);
   }

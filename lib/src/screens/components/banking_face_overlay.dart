@@ -21,7 +21,7 @@ class BankingFaceOverlay extends StatelessWidget {
   final bool isValid;
   final double stabilityProgress;
   final double overallProgress;
-  final KYCStep? currentLivenessStep;
+  final KycStep? currentLivenessStep;
 
   static const Color _validColor = Color(0xFF34D399);
   static const Color _waitingColor = Colors.white;
@@ -138,13 +138,13 @@ class BankingFaceOverlay extends StatelessWidget {
 
   String get _livenessText {
     switch (currentLivenessStep) {
-      case KYCStep.blink:
+      case KycStep.blink:
         return strings.blink;
-      case KYCStep.smile:
+      case KycStep.smile:
         return strings.smile;
-      case KYCStep.turnLeft:
+      case KycStep.turnLeft:
         return strings.turnLeft;
-      case KYCStep.turnRight:
+      case KycStep.turnRight:
         return strings.turnRight;
       case null:
         return strings.lookStraight;

@@ -1,17 +1,17 @@
 import 'package:kyc_flutter/src/_internal.dart';
 
 /// Public entry point kept for backwards compatibility. Wraps
-/// [KYCView] in a [Scaffold].
-class KYCScreen extends StatelessWidget {
+/// [KycView] in a [Scaffold].
+class KycScreen extends StatelessWidget {
   final DetectionConfig config;
 
-  const KYCScreen({required this.config, super.key});
+  const KycScreen({required this.config, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: KYCView(config: config),
+      body: KycView(config: config),
     );
   }
 }
@@ -27,16 +27,16 @@ class KYCScreen extends StatelessWidget {
 /// with `previewFit: contain` and a 16:9 sensor. `contain` matters — it keeps
 /// the analysis image un-cropped so the NV21 -> InputImage conversion stays
 /// valid (a `cover` fit crops the analysis buffer and breaks ML Kit).
-class KYCView extends StatefulWidget {
+class KycView extends StatefulWidget {
   final DetectionConfig config;
 
-  const KYCView({required this.config, super.key});
+  const KycView({required this.config, super.key});
 
   @override
-  State<KYCView> createState() => _KYCViewState();
+  State<KycView> createState() => _KycViewState();
 }
 
-class _KYCViewState extends State<KYCView> {
+class _KycViewState extends State<KycView> {
   //* MARK: - Private Variables
   //? =========================================================
   final FaceDetectionService _faceService = FaceDetectionService();

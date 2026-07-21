@@ -14,7 +14,7 @@ enum KycStatus {
   timeout,
 }
 
-/// The result returned by `KYCFlutter.instance.startKyc`.
+/// The result returned by `KycFlutter.instance.startKyc`.
 ///
 /// Holds the outcome [status] and every [CapturedImage] taken during the flow,
 /// each tagged with its [CapturedImage.type] (and [CapturedImage.step] for
@@ -41,7 +41,7 @@ class KycResult {
   CapturedImage? get manualImage => _firstOfType(KycCaptureType.manual);
 
   /// Images captured during liveness steps, keyed by the step they belong to.
-  Map<KYCStep, CapturedImage> get livenessImages => {
+  Map<KycStep, CapturedImage> get livenessImages => {
     for (final CapturedImage img in images)
       if (img.type == KycCaptureType.liveness && img.step != null)
         img.step!: img,

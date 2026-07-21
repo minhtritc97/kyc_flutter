@@ -4,7 +4,7 @@ class DetectionConfig {
   /// Optional liveness challenges to run after the mandatory "look straight"
   /// far and near captures, in the given order. Leave empty for face framing
   /// only (no extra challenges).
-  final List<KYCStep> steps;
+  final List<KycStep> steps;
 
   /// Timeout (in seconds) for the whole detection flow. When it elapses, the
   /// flow either shows a manual capture button ([allowAfterMaxSec] is `true`)
@@ -44,7 +44,7 @@ class DetectionConfig {
   final Duration nearStableDuration;
 
   /// Minimum ML Kit `smilingProbability` (0..1) required to pass the
-  /// [KYCStep.smile] step. Higher == the user must smile more clearly.
+  /// [KycStep.smile] step. Higher == the user must smile more clearly.
   /// Default *0.5*.
   final double smileThreshold;
 
