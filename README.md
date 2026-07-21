@@ -11,7 +11,7 @@ images.
 
 ## Features
 
-- One-call API: `KYCFlutter.instance.startKyc(context, config: ...)`.
+- One-call API: `KycFlutter.instance.startKyc(context, config: ...)`.
 - Mandatory **look-straight** framing captures (far, then near) run first.
 - Optional liveness challenges: **blink, smile, turn left, turn right**.
 - Fully customizable on-screen text (`KycStrings`) — English by default.
@@ -23,7 +23,7 @@ Add the dependency:
 
 ```yaml
 dependencies:
-  kyc_flutter: ^0.1.0
+  kyc_flutter: ^0.2.0
 ```
 
 ### Permissions
@@ -45,11 +45,11 @@ The flow uses the camera, so add the platform permissions:
 ```dart
 import 'package:kyc_flutter/kyc_flutter.dart';
 
-final KycResult result = await KYCFlutter.instance.startKyc(
+final KycResult result = await KycFlutter.instance.startKyc(
   context,
   config: const DetectionConfig(
     // Look-straight far + near always run first; add liveness steps here:
-    steps: [KYCStep.blink, KYCStep.smile],
+    steps: [KycStep.blink, KycStep.smile],
   ),
 );
 
@@ -57,7 +57,7 @@ switch (result.status) {
   case KycStatus.success:
     final far = result.farImage;                      // CapturedImage?
     final near = result.nearImage;                    // CapturedImage?
-    final blink = result.livenessImages[KYCStep.blink]; // CapturedImage?
+    final blink = result.livenessImages[KycStep.blink]; // CapturedImage?
     // Use result.images for the full ordered list.
     break;
   case KycStatus.cancelled:
@@ -88,7 +88,7 @@ Every string has an English default; override only what you need:
 
 ```dart
 const DetectionConfig(
-  steps: [KYCStep.blink, KYCStep.smile],
+  steps: [KycStep.blink, KycStep.smile],
   strings: KycStrings(
     positionFace: 'Đưa khuôn mặt vào khung',
     moveCloser: 'Đưa mặt lại gần',
