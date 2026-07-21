@@ -1,8 +1,13 @@
-import 'package:kyc_flutter/src/_internal.dart';
+import 'dart:math';
 
 class Utils {
-  /// Generates a unique identifier, used for naming captured image files.
+  static final Random _random = Random();
+
+  /// Generates a unique-enough identifier for naming captured image files,
+  /// without pulling in any third-party dependency.
   static String generate() {
-    return const Uuid().v4();
+    final int timestamp = DateTime.now().microsecondsSinceEpoch;
+    final int random = _random.nextInt(0xFFFFFFFF);
+    return '${timestamp}_$random';
   }
 }

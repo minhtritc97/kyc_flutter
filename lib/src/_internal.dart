@@ -17,7 +17,6 @@ export 'package:camerawesome/pigeon.dart';
 export 'package:flutter/material.dart';
 export 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 export 'package:path_provider/path_provider.dart';
-export 'package:uuid/uuid.dart';
 
 // Controllers
 export 'controllers/capture_controller.dart';
