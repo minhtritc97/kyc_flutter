@@ -5,6 +5,10 @@ a full-screen camera flow (banking-style oval overlay), guides the user through
 framing their face and optional liveness challenges, and returns the captured
 images.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/minhtritc97/kyc_flutter/main/doc/demo.gif" alt="kyc_flutter demo" width="280" />
+</p>
+
 ## Features
 
 - One-call API: `KYCFlutter.instance.startKyc(context, config: ...)`.
@@ -93,6 +97,35 @@ const DetectionConfig(
   ),
 );
 ```
+
+## Troubleshooting
+
+### `PlatformException` / `NullPointerException` from ML Kit on Android
+
+If face detection throws a `PlatformException` (a `NullPointerException` deep in
+ML Kit's obfuscated code, on the native byte-array path), the cause is the
+**Android Gradle Plugin (AGP) version**, not this package.
+
+AGP 9.x is brand-new/experimental and breaks the ML Kit face-detection native
+library. Pin your Android build tooling to the stable 8.x line:
+
+- `android/settings.gradle.kts` — `com.android.application` → **`8.11.2`**
+- `android/gradle/wrapper/gradle-wrapper.properties` — Gradle → **`8.14`**
+
+```kotlin
+// android/settings.gradle.kts
+plugins {
+    id("com.android.application") version "8.11.2" apply false
+    // ...
+}
+```
+
+```properties
+# android/gradle/wrapper/gradle-wrapper.properties
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.14-bin.zip
+```
+
+The bundled `example/` app is already pinned to these versions.
 
 ## Example
 
