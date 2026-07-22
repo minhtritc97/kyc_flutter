@@ -5,6 +5,13 @@ homepage: https://github.com/minhtritc97/kyc_flutter
 repository: https://github.com/minhtritc97/kyc_flutter
 issue_tracker: https://github.com/minhtritc97/kyc_flutter/issues
 
+topics:
+  - kyc
+  - camera
+  - face-detection
+  - liveness
+  - biometrics
+
 environment:
   sdk: ^3.12.2
   flutter: ">=1.17.0"
