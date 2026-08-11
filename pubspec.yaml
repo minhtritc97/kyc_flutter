@@ -1,6 +1,6 @@
 name: kyc_flutter
 description: "A drop-in Flutter KYC / face-liveness camera flow: framing captures plus optional blink, smile and head-turn challenges."
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/minhtritc97/kyc_flutter
 repository: https://github.com/minhtritc97/kyc_flutter
 issue_tracker: https://github.com/minhtritc97/kyc_flutter/issues

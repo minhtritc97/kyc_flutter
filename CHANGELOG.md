@@ -1,3 +1,10 @@
+## 0.2.1
+
+* Added `topics` (kyc, camera, face-detection, liveness, biometrics) to
+  `pubspec.yaml` to improve discoverability on pub.dev.
+* Cleaned up the placeholder copyright line in `LICENSE` so pub.dev correctly
+  detects the MIT license instead of showing "unknown".
+
 ## 0.2.0
 
 * **Breaking:** renamed the `KYC`-prefixed public types to `Kyc` for naming
