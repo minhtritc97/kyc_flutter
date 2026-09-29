@@ -131,7 +131,7 @@ class _KycViewState extends State<KycView> {
       // (indeterminate while [FacePhase.initializing]), so render nothing here.
       progressIndicator: const SizedBox.shrink(),
       previewFit: CameraPreviewFit.contain,
-      mirrorFrontCamera: true,
+      mirrorFrontCamera: widget.config.mirrorFrontCamera,
       sensorConfig: SensorConfig.single(
         aspectRatio: CameraAspectRatios.ratio_16_9,
         flashMode: FlashMode.none,
@@ -151,6 +151,9 @@ class _KycViewState extends State<KycView> {
         return const SizedBox.shrink();
       },
       saveConfig: SaveConfig.photo(
+        // The builder's flag only mirrors the preview; the saved photo is
+        // mirrored separately, so keep both in sync.
+        mirrorFrontCamera: widget.config.mirrorFrontCamera,
         pathBuilder: (_) async {
           final String dir = await getTemporaryDirectory().then(
             (value) => value.path,

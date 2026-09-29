@@ -48,6 +48,11 @@ class DetectionConfig {
   /// Default *0.5*.
   final double smileThreshold;
 
+  /// Whether the front camera is mirrored (selfie-style). Applied to both the
+  /// live preview and the saved photos, so captured images match exactly what
+  /// the user saw on screen. Default *true*.
+  final bool mirrorFrontCamera;
+
   const DetectionConfig({
     this.steps = const [],
     this.maxSecToDetect,
@@ -59,5 +64,6 @@ class DetectionConfig {
     this.farStableDuration = const Duration(milliseconds: 2500),
     this.nearStableDuration = const Duration(milliseconds: 2000),
     this.smileThreshold = 0.5,
+    this.mirrorFrontCamera = true,
   });
 }
