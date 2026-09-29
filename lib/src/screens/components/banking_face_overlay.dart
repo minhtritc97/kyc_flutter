@@ -41,12 +41,15 @@ class BankingFaceOverlay extends StatelessWidget {
             progress: stabilityProgress,
           ),
         ),
-        // Top overall progress bar.
+        // Bottom overall progress bar — indeterminate while the camera is
+        // still starting up, so it doubles as the loading indicator.
         Positioned(
           bottom: 80,
           left: 24,
           right: 24,
-          child: _OverallProgressBar(progress: overallProgress),
+          child: _OverallProgressBar(
+            progress: phase == FacePhase.initializing ? null : overallProgress,
+          ),
         ),
         // Hint text just below the oval.
         Positioned(
@@ -205,11 +208,13 @@ class _OvalOverlayPainter extends CustomPainter {
       oldDelegate.progress != progress || oldDelegate.accent != accent;
 }
 
-/// A slim rounded progress bar shown at the top of the screen.
+/// A slim rounded progress bar shown near the bottom of the screen.
+///
+/// A `null` [progress] renders it indeterminate (used while initializing).
 class _OverallProgressBar extends StatelessWidget {
   const _OverallProgressBar({required this.progress});
 
-  final double progress;
+  final double? progress;
 
   @override
   Widget build(BuildContext context) {

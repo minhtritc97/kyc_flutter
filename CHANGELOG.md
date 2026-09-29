@@ -1,3 +1,12 @@
+## 0.2.2
+
+* The camera loading state now uses the overlay's bottom progress bar
+  (indeterminate while the camera starts) instead of camerawesome's default
+  `CircularProgressIndicator`, which picked up the host app's theme colour and
+  sat off-centre from the face oval.
+* Removed the Android troubleshooting note about AGP 9.x: the face-detection
+  flow has been verified working on AGP 9.3.1.
+
 ## 0.2.1
 
 * Added `topics` (kyc, camera, face-detection, liveness, biometrics) to

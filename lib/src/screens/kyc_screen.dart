@@ -125,6 +125,11 @@ class _KycViewState extends State<KycView> {
 
   Widget _buildCamera() {
     return CameraAwesomeBuilder.custom(
+      // camerawesome's default is a `CircularProgressIndicator` centred on the
+      // whole screen: it takes the host app's theme colour and sits below the
+      // oval's centre. The overlay's bottom bar already shows the loading state
+      // (indeterminate while [FacePhase.initializing]), so render nothing here.
+      progressIndicator: const SizedBox.shrink(),
       previewFit: CameraPreviewFit.contain,
       mirrorFrontCamera: true,
       sensorConfig: SensorConfig.single(
