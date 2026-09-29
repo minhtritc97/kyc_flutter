@@ -23,7 +23,7 @@ Add the dependency:
 
 ```yaml
 dependencies:
-  kyc_flutter: ^0.2.0
+  kyc_flutter: ^0.2.3
 ```
 
 ### Permissions
@@ -81,6 +81,7 @@ switch (result.status) {
 | `farThreshold` / `nearThreshold` | `0.28` / `0.50` | Face-distance thresholds (fraction of frame). |
 | `farStableDuration` / `nearStableDuration` | `2.5s` / `2s` | Hold-steady time before capture. |
 | `smileThreshold` | `0.5` | Min smiling probability (0..1) for the smile step. |
+| `mirrorFrontCamera` | `true` | Mirror the front camera (selfie-style). Applies to both the preview and the saved photos, so captures match what the user saw. |
 
 ### Localization
 

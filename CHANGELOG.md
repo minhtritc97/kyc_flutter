@@ -1,3 +1,9 @@
+## 0.2.3
+
+* Added `DetectionConfig.mirrorFrontCamera` (default `true`). It is applied to
+  both the live preview and the saved photos, fixing captured images coming out
+  horizontally flipped compared to what the user saw in the preview.
+
 ## 0.2.2
 
 * The camera loading state now uses the overlay's bottom progress bar
